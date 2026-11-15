@@ -1,0 +1,578 @@
+{
+  "anomaly_evaluation": {
+    "mean_anomaly_normal": 0.319,
+    "mean_anomaly_reported": 0.796,
+    "reported_scores": {
+      "CASE_A": 1.0,
+      "CASE_B": 0.96,
+      "CASE_C": 0.999,
+      "CASE_D": 1.0,
+      "CASE_E": 0.28,
+      "CASE_F": 0.537
+    }
+  },
+  "calibration": {
+    "margin": 0.238,
+    "max_dissimilar": 0.669,
+    "min_similar": 0.907,
+    "threshold": 0.788
+  },
+  "hub_filter_active": true,
+  "pairs": [
+    {
+      "case_a": "CASE_A",
+      "case_b": "CASE_B",
+      "explanation": "Shares 2 account(s) and exhibits similar fan-out / consolidation money flow.",
+      "is_similar": true,
+      "matching_features": [
+        {
+          "a": 3.0,
+          "b": 3.0,
+          "feature": "split_ratio"
+        },
+        {
+          "a": 1.0,
+          "b": 1.0,
+          "feature": "n_beneficiaries"
+        },
+        {
+          "a": 4.0,
+          "b": 4.0,
+          "feature": "n_passthrough"
+        },
+        {
+          "a": 3.0,
+          "b": 3.0,
+          "feature": "hop_depth"
+        },
+        {
+          "a": 3.0,
+          "b": 3.0,
+          "feature": "consolidation_ratio"
+        }
+      ],
+      "shared_accounts": 2,
+      "similarity": 0.908
+    },
+    {
+      "case_a": "CASE_A",
+      "case_b": "CASE_C",
+      "explanation": "Shares 1 account(s) and exhibits similar fan-out / consolidation money flow.",
+      "is_similar": true,
+      "matching_features": [
+        {
+          "a": 8.0,
+          "b": 8.0,
+          "feature": "n_tx"
+        },
+        {
+          "a": 3.0,
+          "b": 3.0,
+          "feature": "split_ratio"
+        },
+        {
+          "a": 1.0,
+          "b": 1.0,
+          "feature": "n_beneficiaries"
+        },
+        {
+          "a": 4.0,
+          "b": 4.0,
+          "feature": "n_passthrough"
+        },
+        {
+          "a": 3.0,
+          "b": 3.0,
+          "feature": "hop_depth"
+        }
+      ],
+      "shared_accounts": 1,
+      "similarity": 0.977
+    },
+    {
+      "case_a": "CASE_A",
+      "case_b": "CASE_D",
+      "explanation": "No common accounts, but both cases show rapid fan-out into 3 intermediaries followed by consolidation.",
+      "is_similar": true,
+      "matching_features": [
+        {
+          "a": 8.0,
+          "b": 8.0,
+          "feature": "n_tx"
+        },
+        {
+          "a": 3.0,
+          "b": 3.0,
+          "feature": "split_ratio"
+        },
+        {
+          "a": 1.0,
+          "b": 1.0,
+          "feature": "n_beneficiaries"
+        },
+        {
+          "a": 4.0,
+          "b": 4.0,
+          "feature": "n_passthrough"
+        },
+        {
+          "a": 3.0,
+          "b": 3.0,
+          "feature": "hop_depth"
+        }
+      ],
+      "shared_accounts": 0,
+      "similarity": 0.979
+    },
+    {
+      "case_a": "CASE_A",
+      "case_b": "CASE_E",
+      "explanation": "Timing and transaction structure differ significantly from the known layered fraud pattern.",
+      "is_similar": false,
+      "matching_features": [
+        {
+          "a": 1.0,
+          "b": 1.0,
+          "feature": "n_beneficiaries"
+        },
+        {
+          "a": 0.0,
+          "b": 0.0,
+          "feature": "layer_3"
+        },
+        {
+          "a": 0.951,
+          "b": 0.983,
+          "feature": "retention"
+        },
+        {
+          "a": 0.906,
+          "b": 0.983,
+          "feature": "in_out_ratio"
+        }
+      ],
+      "shared_accounts": 0,
+      "similarity": 0.384
+    },
+    {
+      "case_a": "CASE_A",
+      "case_b": "CASE_F",
+      "explanation": "Timing and transaction structure differ significantly from the known layered fraud pattern.",
+      "is_similar": false,
+      "matching_features": [
+        {
+          "a": 0.0,
+          "b": 0.0,
+          "feature": "layer_3"
+        },
+        {
+          "a": 0.951,
+          "b": 0.957,
+          "feature": "retention"
+        },
+        {
+          "a": 0.906,
+          "b": 0.957,
+          "feature": "in_out_ratio"
+        },
+        {
+          "a": 9.879,
+          "b": 9.739,
+          "feature": "log_avg_amount"
+        },
+        {
+          "a": 0.25,
+          "b": 0.333,
+          "feature": "layer_0"
+        }
+      ],
+      "shared_accounts": 0,
+      "similarity": 0.463
+    },
+    {
+      "case_a": "CASE_B",
+      "case_b": "CASE_C",
+      "explanation": "Shares 1 account(s) and exhibits similar fan-out / consolidation money flow.",
+      "is_similar": true,
+      "matching_features": [
+        {
+          "a": 3.0,
+          "b": 3.0,
+          "feature": "split_ratio"
+        },
+        {
+          "a": 1.0,
+          "b": 1.0,
+          "feature": "n_beneficiaries"
+        },
+        {
+          "a": 4.0,
+          "b": 4.0,
+          "feature": "n_passthrough"
+        },
+        {
+          "a": 3.0,
+          "b": 3.0,
+          "feature": "hop_depth"
+        },
+        {
+          "a": 3.0,
+          "b": 3.0,
+          "feature": "consolidation_ratio"
+        }
+      ],
+      "shared_accounts": 1,
+      "similarity": 0.907
+    },
+    {
+      "case_a": "CASE_B",
+      "case_b": "CASE_D",
+      "explanation": "No common accounts, but both cases show rapid fan-out into 3 intermediaries followed by consolidation.",
+      "is_similar": true,
+      "matching_features": [
+        {
+          "a": 3.0,
+          "b": 3.0,
+          "feature": "split_ratio"
+        },
+        {
+          "a": 1.0,
+          "b": 1.0,
+          "feature": "n_beneficiaries"
+        },
+        {
+          "a": 4.0,
+          "b": 4.0,
+          "feature": "n_passthrough"
+        },
+        {
+          "a": 3.0,
+          "b": 3.0,
+          "feature": "hop_depth"
+        },
+        {
+          "a": 3.0,
+          "b": 3.0,
+          "feature": "consolidation_ratio"
+        }
+      ],
+      "shared_accounts": 0,
+      "similarity": 0.91
+    },
+    {
+      "case_a": "CASE_B",
+      "case_b": "CASE_E",
+      "explanation": "Timing and transaction structure differ significantly from the known layered fraud pattern.",
+      "is_similar": false,
+      "matching_features": [
+        {
+          "a": 1.0,
+          "b": 1.0,
+          "feature": "n_beneficiaries"
+        },
+        {
+          "a": 0.0,
+          "b": 0.0,
+          "feature": "layer_3"
+        },
+        {
+          "a": 0.965,
+          "b": 0.983,
+          "feature": "retention"
+        },
+        {
+          "a": 0.932,
+          "b": 0.983,
+          "feature": "in_out_ratio"
+        }
+      ],
+      "shared_accounts": 0,
+      "similarity": 0.372
+    },
+    {
+      "case_a": "CASE_B",
+      "case_b": "CASE_F",
+      "explanation": "Timing and transaction structure differ significantly from the known layered fraud pattern.",
+      "is_similar": false,
+      "matching_features": [
+        {
+          "a": 0.333,
+          "b": 0.333,
+          "feature": "layer_0"
+        },
+        {
+          "a": 0.0,
+          "b": 0.0,
+          "feature": "layer_3"
+        },
+        {
+          "a": 0.965,
+          "b": 0.957,
+          "feature": "retention"
+        },
+        {
+          "a": 0.932,
+          "b": 0.957,
+          "feature": "in_out_ratio"
+        },
+        {
+          "a": 9.833,
+          "b": 9.739,
+          "feature": "log_avg_amount"
+        }
+      ],
+      "shared_accounts": 0,
+      "similarity": 0.451
+    },
+    {
+      "case_a": "CASE_C",
+      "case_b": "CASE_D",
+      "explanation": "No common accounts, but both cases show rapid fan-out into 3 intermediaries followed by consolidation.",
+      "is_similar": true,
+      "matching_features": [
+        {
+          "a": 8.0,
+          "b": 8.0,
+          "feature": "n_tx"
+        },
+        {
+          "a": 3.0,
+          "b": 3.0,
+          "feature": "split_ratio"
+        },
+        {
+          "a": 1.0,
+          "b": 1.0,
+          "feature": "n_beneficiaries"
+        },
+        {
+          "a": 4.0,
+          "b": 4.0,
+          "feature": "n_passthrough"
+        },
+        {
+          "a": 3.0,
+          "b": 3.0,
+          "feature": "hop_depth"
+        }
+      ],
+      "shared_accounts": 0,
+      "similarity": 0.98
+    },
+    {
+      "case_a": "CASE_C",
+      "case_b": "CASE_E",
+      "explanation": "Timing and transaction structure differ significantly from the known layered fraud pattern.",
+      "is_similar": false,
+      "matching_features": [
+        {
+          "a": 1.0,
+          "b": 1.0,
+          "feature": "n_beneficiaries"
+        },
+        {
+          "a": 0.0,
+          "b": 0.0,
+          "feature": "layer_3"
+        },
+        {
+          "a": 0.971,
+          "b": 0.983,
+          "feature": "retention"
+        },
+        {
+          "a": 0.943,
+          "b": 0.983,
+          "feature": "in_out_ratio"
+        }
+      ],
+      "shared_accounts": 0,
+      "similarity": 0.389
+    },
+    {
+      "case_a": "CASE_C",
+      "case_b": "CASE_F",
+      "explanation": "Timing and transaction structure differ significantly from the known layered fraud pattern.",
+      "is_similar": false,
+      "matching_features": [
+        {
+          "a": 0.0,
+          "b": 0.0,
+          "feature": "layer_3"
+        },
+        {
+          "a": 0.971,
+          "b": 0.957,
+          "feature": "retention"
+        },
+        {
+          "a": 0.943,
+          "b": 0.957,
+          "feature": "in_out_ratio"
+        },
+        {
+          "a": 0.25,
+          "b": 0.333,
+          "feature": "layer_0"
+        },
+        {
+          "a": 10.025,
+          "b": 9.739,
+          "feature": "log_avg_amount"
+        }
+      ],
+      "shared_accounts": 0,
+      "similarity": 0.465
+    },
+    {
+      "case_a": "CASE_D",
+      "case_b": "CASE_E",
+      "explanation": "Timing and transaction structure differ significantly from the known layered fraud pattern.",
+      "is_similar": false,
+      "matching_features": [
+        {
+          "a": 1.0,
+          "b": 1.0,
+          "feature": "n_beneficiaries"
+        },
+        {
+          "a": 0.0,
+          "b": 0.0,
+          "feature": "layer_3"
+        },
+        {
+          "a": 0.952,
+          "b": 0.983,
+          "feature": "retention"
+        },
+        {
+          "a": 0.907,
+          "b": 0.983,
+          "feature": "in_out_ratio"
+        }
+      ],
+      "shared_accounts": 0,
+      "similarity": 0.385
+    },
+    {
+      "case_a": "CASE_D",
+      "case_b": "CASE_F",
+      "explanation": "Timing and transaction structure differ significantly from the known layered fraud pattern.",
+      "is_similar": false,
+      "matching_features": [
+        {
+          "a": 0.0,
+          "b": 0.0,
+          "feature": "layer_3"
+        },
+        {
+          "a": 0.952,
+          "b": 0.957,
+          "feature": "retention"
+        },
+        {
+          "a": 0.907,
+          "b": 0.957,
+          "feature": "in_out_ratio"
+        },
+        {
+          "a": 9.933,
+          "b": 9.739,
+          "feature": "log_avg_amount"
+        },
+        {
+          "a": 0.25,
+          "b": 0.333,
+          "feature": "layer_0"
+        }
+      ],
+      "shared_accounts": 0,
+      "similarity": 0.463
+    },
+    {
+      "case_a": "CASE_E",
+      "case_b": "CASE_F",
+      "explanation": "Timing and transaction structure differ significantly from the known layered fraud pattern.",
+      "is_similar": false,
+      "matching_features": [
+        {
+          "a": 1.0,
+          "b": 1.0,
+          "feature": "n_passthrough"
+        },
+        {
+          "a": 2.0,
+          "b": 2.0,
+          "feature": "hop_depth"
+        },
+        {
+          "a": 1.0,
+          "b": 1.0,
+          "feature": "consolidation_ratio"
+        },
+        {
+          "a": 0.0,
+          "b": 0.0,
+          "feature": "layer_2"
+        },
+        {
+          "a": 0.0,
+          "b": 0.0,
+          "feature": "layer_3"
+        }
+      ],
+      "shared_accounts": 0,
+      "similarity": 0.669
+    }
+  ],
+  "similarity_matrix": {
+    "CASE_A": {
+      "CASE_A": 1.0,
+      "CASE_B": 0.908,
+      "CASE_C": 0.977,
+      "CASE_D": 0.979,
+      "CASE_E": 0.384,
+      "CASE_F": 0.463
+    },
+    "CASE_B": {
+      "CASE_A": 0.908,
+      "CASE_B": 1.0,
+      "CASE_C": 0.907,
+      "CASE_D": 0.91,
+      "CASE_E": 0.372,
+      "CASE_F": 0.451
+    },
+    "CASE_C": {
+      "CASE_A": 0.977,
+      "CASE_B": 0.907,
+      "CASE_C": 1.0,
+      "CASE_D": 0.98,
+      "CASE_E": 0.389,
+      "CASE_F": 0.465
+    },
+    "CASE_D": {
+      "CASE_A": 0.979,
+      "CASE_B": 0.91,
+      "CASE_C": 0.98,
+      "CASE_D": 1.0,
+      "CASE_E": 0.385,
+      "CASE_F": 0.463
+    },
+    "CASE_E": {
+      "CASE_A": 0.384,
+      "CASE_B": 0.372,
+      "CASE_C": 0.389,
+      "CASE_D": 0.385,
+      "CASE_E": 1.0,
+      "CASE_F": 0.669
+    },
+    "CASE_F": {
+      "CASE_A": 0.463,
+      "CASE_B": 0.451,
+      "CASE_C": 0.465,
+      "CASE_D": 0.463,
+      "CASE_E": 0.669,
+      "CASE_F": 1.0
+    }
+  }
+}
