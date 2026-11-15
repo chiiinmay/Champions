@@ -2,6 +2,8 @@ import networkx as nx
 import numpy as np
 import pandas as pd
 
+from backend.cross_case_detection import HUB_DEGREE_THRESHOLD
+
 FEATURES = [
     "log_avg_amount", "n_tx", "log_median_gap_min", "log_duration_min",
     "split_ratio", "n_beneficiaries", "in_out_ratio", "n_passthrough",
@@ -90,15 +92,18 @@ def case_features(c: pd.DataFrame, hub_accounts: set = None) -> dict:
     return feat
 
 
-def all_case_features(df: pd.DataFrame, filter_hubs: bool = True, hub_threshold: int = 25) -> pd.DataFrame:
+def get_hub_accounts(df: pd.DataFrame, threshold: int = HUB_DEGREE_THRESHOLD) -> set:
+    """Identifies high-degree hub accounts using the shared degree threshold from Phase 2."""
+    total_deg = pd.concat([df.sender_account, df.receiver_account]).value_counts()
+    return set(total_deg[total_deg > threshold].index)
+
+
+def all_case_features(df: pd.DataFrame, filter_hubs: bool = True, hub_threshold: int = HUB_DEGREE_THRESHOLD) -> pd.DataFrame:
     """Computes features for all cases in df (excluding BACKGROUND ambient traffic).
     
-    hub_accounts are determined globally across df if filter_hubs is True.
+    hub_accounts are determined globally across df if filter_hubs is True using get_hub_accounts.
     """
-    hub_accounts = None
-    if filter_hubs:
-        total_deg = pd.concat([df.sender_account, df.receiver_account]).value_counts()
-        hub_accounts = set(total_deg[total_deg > hub_threshold].index)
+    hub_accounts = get_hub_accounts(df, hub_threshold) if filter_hubs else None
 
     rows = []
     for cid, g in df[~df.case_id.isin(["BACKGROUND"])].groupby("case_id"):

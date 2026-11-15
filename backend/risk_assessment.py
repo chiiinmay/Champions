@@ -1,5 +1,6 @@
 import pandas as pd
 
+from backend.cross_case_detection import HUB_DEGREE_THRESHOLD
 from backend.feature_extraction import case_features
 from backend.similarity_engine import matching_features, similarity
 
@@ -16,7 +17,7 @@ def level(score: float) -> str:
 
 
 def assess_case(case_df: pd.DataFrame, engine, anomaly, known_ids, threshold,
-                existing_df=None, hub_threshold: int = 25) -> dict:
+                existing_df=None, hub_threshold: int = HUB_DEGREE_THRESHOLD) -> dict:
     """Calculates explainable priority-for-review assessment based on:
     - Direct connections (shared accounts, ignoring hubs) [40%]
     - Behavioral pattern similarity to known fraud cases [35%]
