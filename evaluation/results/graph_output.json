@@ -1,0 +1,103 @@
+{
+  "connections": [
+    {
+      "case_a": "CASE_A",
+      "case_b": "CASE_B",
+      "shared_accounts": [
+        {
+          "account": "B900",
+          "role": "intermediary",
+          "bank": "Bank Beta"
+        },
+        {
+          "account": "G777",
+          "role": "intermediary",
+          "bank": "Bank Gamma"
+        }
+      ],
+      "supporting_transactions": [
+        "TX00001",
+        "TX00002",
+        "TX00003",
+        "TX00004",
+        "TX00005",
+        "TX00006",
+        "TX00007",
+        "TX00008",
+        "TX00009",
+        "TX00010",
+        "TX00011",
+        "TX00012",
+        "TX00013",
+        "TX00014",
+        "TX00015",
+        "TX00016",
+        "TX00017",
+        "TX00018"
+      ],
+      "explanation": "CASE_A and CASE_B both involve B900 (intermediary), G777 (intermediary)."
+    },
+    {
+      "case_a": "CASE_A",
+      "case_b": "CASE_C",
+      "shared_accounts": [
+        {
+          "account": "B900",
+          "role": "intermediary",
+          "bank": "Bank Beta"
+        }
+      ],
+      "supporting_transactions": [
+        "TX00001",
+        "TX00002",
+        "TX00003",
+        "TX00004",
+        "TX00005",
+        "TX00019",
+        "TX00020",
+        "TX00021",
+        "TX00022",
+        "TX00023"
+      ],
+      "explanation": "CASE_A and CASE_C both involve B900 (intermediary)."
+    },
+    {
+      "case_a": "CASE_B",
+      "case_b": "CASE_C",
+      "shared_accounts": [
+        {
+          "account": "B900",
+          "role": "intermediary",
+          "bank": "Bank Beta"
+        }
+      ],
+      "supporting_transactions": [
+        "TX00010",
+        "TX00011",
+        "TX00012",
+        "TX00013",
+        "TX00014",
+        "TX00015",
+        "TX00019",
+        "TX00020",
+        "TX00021",
+        "TX00022",
+        "TX00023"
+      ],
+      "explanation": "CASE_B and CASE_C both involve B900 (intermediary)."
+    }
+  ],
+  "case_groups": [
+    [
+      "CASE_A",
+      "CASE_B",
+      "CASE_C"
+    ]
+  ],
+  "ignored_hub_accounts": [
+    {
+      "account": "AU001",
+      "total_degree": 43
+    }
+  ]
+}
