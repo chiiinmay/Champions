@@ -1,0 +1,16 @@
+case_1,case_2,relation,expect_connected,expect_similar,notes
+CASE_A,CASE_B,shared_account,Yes,Yes,share intermediary B900 (and G777 for A-B)
+CASE_A,CASE_C,shared_account,Yes,Yes,share intermediary B900 (and G777 for A-B)
+CASE_A,CASE_D,similar_pattern,No,Yes,"same behaviour, no common accounts"
+CASE_A,CASE_E,unrelated,No,No,control case
+CASE_A,CASE_F,hub_only,No,No,both touch popular hub U001; should be ignored
+CASE_B,CASE_C,shared_account,Yes,Yes,share intermediary B900 (and G777 for A-B)
+CASE_B,CASE_D,similar_pattern,No,Yes,"same behaviour, no common accounts"
+CASE_B,CASE_E,unrelated,No,No,control case
+CASE_B,CASE_F,near_miss,No,No,layered but slow; timing differs
+CASE_C,CASE_D,similar_pattern,No,Yes,"same behaviour, no common accounts"
+CASE_C,CASE_E,unrelated,No,No,control case
+CASE_C,CASE_F,near_miss,No,No,layered but slow; timing differs
+CASE_D,CASE_E,unrelated,No,No,control case
+CASE_D,CASE_F,near_miss,No,No,layered but slow; timing differs
+CASE_E,CASE_F,near_miss,No,No,layered but slow; timing differs
