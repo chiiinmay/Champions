@@ -1,7 +1,8 @@
 import numpy as np
 import pandas as pd
 
-from backend.feature_extraction import FEATURES, case_features
+from backend.cross_case_detection import discover_connections
+from backend.feature_extraction import FEATURES, case_features, get_hub_accounts
 from backend.fingerprint_engine import FingerprintEngine
 from backend.graph_engine import load_transactions
 from backend.similarity_engine import calibrate_threshold, similarity
@@ -186,3 +187,26 @@ def test_edge_case_cycles():
         assert not np.isnan(v), f"Feature {k} is NaN"
         assert not np.isinf(v), f"Feature {k} is infinite"
     assert feats["hop_depth"] >= 1
+
+
+# ---------------------------------------------------------------------------
+# Phase 4a addition: hub-consistency test
+# ---------------------------------------------------------------------------
+
+def test_hub_accounts_consistent_with_discover_connections():
+    """get_hub_accounts(df) must return exactly the accounts listed in
+    discover_connections(df)['ignored_hub_accounts'].
+
+    This verifies that Phase 2 (graph) and Phase 3 (feature extraction)
+    share a single hub-detection function and threshold, so that the same
+    accounts are filtered in both engines.
+    """
+    feat_hubs = get_hub_accounts(df)                     # set of account strings
+    graph_result = discover_connections(df)
+    graph_hubs = {h["account"] for h in graph_result["ignored_hub_accounts"]}
+    assert feat_hubs == graph_hubs, (
+        f"Hub accounts differ between feature_extraction and discover_connections.\n"
+        f"  feature_extraction: {sorted(feat_hubs)}\n"
+        f"  discover_connections: {sorted(graph_hubs)}"
+    )
+

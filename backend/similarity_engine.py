@@ -17,8 +17,15 @@ def similarity(za: np.ndarray, zb: np.ndarray) -> float:
 
 
 def matching_features(za, zb, raw_a, raw_b, tol=0.5, top=5) -> list[dict]:
-    """Identifies the features where standardized behavioral profiles are closest."""
-    diffs = [(abs(za[i] - zb[i]), FEATURES[i]) for i in range(len(FEATURES))]
+    """Identifies the features where standardized behavioral profiles are closest.
+    
+    Excludes features where both raw values are 0 (non-informative matching).
+    """
+    diffs = [
+        (abs(za[i] - zb[i]), FEATURES[i])
+        for i in range(len(FEATURES))
+        if not (float(raw_a[FEATURES[i]]) == 0.0 and float(raw_b[FEATURES[i]]) == 0.0)
+    ]
     diffs.sort(key=lambda x: x[0])
     return [
         {
